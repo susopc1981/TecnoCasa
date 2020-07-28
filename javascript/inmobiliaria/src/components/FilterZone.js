@@ -71,12 +71,13 @@ function FilterZone() {
   return (
     <>
       {dataFilter ? (
-        <div className="alert alert-success">
+        <div className="alert alert-primary d-flex flex-column">
+          <h3 className="text-center">Filtros</h3>
           <FilterContext.Provider
             value={{ data: filters.rooms, fn: onChangeOption }}
           >
             <div>
-              <label className="mr-2">Nº Habitaciones:</label>
+              <label className="mr-2 font-weight-bold">Habitaciones:</label>
               <Select name="rooms" options={dataFilter.rooms} />
             </div>
           </FilterContext.Provider>
@@ -84,7 +85,7 @@ function FilterZone() {
             value={{ data: filters.baths, fn: onChangeOption }}
           >
             <div>
-              <label>Nº Baños</label>
+              <label className="mr-2 font-weight-bold">Baños</label>
               <Select name="baths" options={dataFilter.baths} />
             </div>
           </FilterContext.Provider>
@@ -92,7 +93,7 @@ function FilterZone() {
             value={{ data: filters.parks, fn: onChangeOption }}
           >
             <div>
-              <label>Nº plazas parking</label>
+              <label className="mr-2 font-weight-bold">Plazas parking</label>
               <Select name="parks" options={dataFilter.parks} />
             </div>
           </FilterContext.Provider>
@@ -100,11 +101,18 @@ function FilterZone() {
             value={{ data: filters.types, fn: onChangeOption }}
           >
             <div>
-              <label>Tipo de inmueble</label>
-              <Select name="types" options={dataFilter.types} />
+              <label className="mr-2 font-weight-bold">Tipo de inmueble</label>
+              <div className="d-flex flex-column">
+                <Select name="types" options={dataFilter.types} />
+              </div>
             </div>
           </FilterContext.Provider>
-          <button onClick={resetFilters}>Resetear filtros</button>
+          <button
+            className="botonReset text-center align-self-center"
+            onClick={resetFilters}
+          >
+            Resetear filtros
+          </button>
         </div>
       ) : (
         <></>

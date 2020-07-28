@@ -12,29 +12,31 @@ function Select(props) {
     console.log("fdadsfd");
   }
   return (
-    <>
-      {data.data === "" ? (
-        <input
-          type="radio"
-          name={props.name}
-          value="Todas"
-          checked="true"
-          onClick={(event) => data.fn(event, props.name)}
-        />
-      ) : (
-        <input
-          type="radio"
-          name={props.name}
-          value="Todas"
-          onClick={(event) => data.fn(event, props.name)}
-        />
-      )}
-      <label className="mr-2">Todas</label>
+    <div className="row border-botom mb-2">
+      <div className="col-6">
+        {data.data === "" ? (
+          <input
+            type="radio"
+            name={props.name}
+            value="Todas"
+            checked="true"
+            onClick={(event) => data.fn(event, props.name)}
+          />
+        ) : (
+          <input
+            type="radio"
+            name={props.name}
+            value="Todas"
+            onClick={(event) => data.fn(event, props.name)}
+          />
+        )}
+        <label className="mr-3 ml-1">Todas</label>
+      </div>
       {props.options.map((value) => {
         let checked = false;
         if (data.data === value) checked = true;
         return (
-          <>
+          <div className="col-6">
             <input
               type="radio"
               name={props.name}
@@ -42,11 +44,11 @@ function Select(props) {
               checked={checked}
               onClick={(event) => data.fn(event, props.name)}
             />
-            <label className="mr-2">{value}</label>
-          </>
+            <label className="mr-3 ml-1">{value}</label>
+          </div>
         );
       })}
-    </>
+    </div>
   );
 }
 
